@@ -2,3 +2,7 @@
 - set global user config to see if I could log changes that way
 - set global conif manager:
 	git config --global credential.helper manager
+- set provider
+	git config --global --unset credential.github.com.authority
+	git config --global credential.github.com.provider github
+	git config --global credential.github.com.allowWindowsAuth false
