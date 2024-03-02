@@ -6,3 +6,10 @@
 	git config --global --unset credential.github.com.authority
 	git config --global credential.github.com.provider github
 	git config --global credential.github.com.allowWindowsAuth false
+	reference: 
+		https://github.com/git-ecosystem/git-credential-manager/blob/main/docs/migration.md#gcm_authority
+	also:
+
+		https://github.com/git-ecosystem/git-credential-manager/blob/main/docs/faq.md
+- but commits are not signed
+- To sign commits add -S to commit command but then will need to have the key associated with your account and enter it ....
