@@ -1,1 +1,4 @@
-2024-03-02 - set global user config to see if I could log changes that way
+2024-03-02 
+- set global user config to see if I could log changes that way
+- set global conif manager:
+	git config --global credential.helper manager
