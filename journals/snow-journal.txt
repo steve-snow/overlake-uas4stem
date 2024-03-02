@@ -1,0 +1,16 @@
+2024-03-02 
+- set global user config to see if I could log changes that way
+- set global conif manager:
+	git config --global credential.helper manager
+- set provider
+	git config --global --unset credential.github.com.authority
+	git config --global credential.github.com.provider github
+	git config --global credential.github.com.allowWindowsAuth false
+	reference: 
+		https://github.com/git-ecosystem/git-credential-manager/blob/main/docs/migration.md#gcm_authority
+	also:
+
+		https://github.com/git-ecosystem/git-credential-manager/blob/main/docs/faq.md
+- but commits are not signed
+- To sign commits add -S to commit command but then will need to have the key associated with your account and enter it .... or have it stored in the /.gnupg folder in c/users/<windowsusername>
+
