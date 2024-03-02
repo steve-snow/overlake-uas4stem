@@ -12,4 +12,5 @@
 
 		https://github.com/git-ecosystem/git-credential-manager/blob/main/docs/faq.md
 - but commits are not signed
-- To sign commits add -S to commit command but then will need to have the key associated with your account and enter it ....
+- To sign commits add -S to commit command but then will need to have the key associated with your account and enter it .... or have it stored in the /.gnupg folder in c/users/<windowsusername>
+
