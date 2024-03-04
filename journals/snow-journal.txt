@@ -1,0 +1,138 @@
+2024-03-02 
+- set global user config to see if I could log changes that way
+- set global conif manager:
+	git config --global credential.helper manager
+- set provider
+	git config --global --unset credential.github.com.authority
+	git config --global credential.github.com.provider github
+	git config --global credential.github.com.allowWindowsAuth false
+	reference: 
+		https://github.com/git-ecosystem/git-credential-manager/blob/main/docs/migration.md#gcm_authority
+	also:
+
+		https://github.com/git-ecosystem/git-credential-manager/blob/main/docs/faq.md
+- but commits are not signed
+- To sign commits add -S to commit command but then will need to have the key associated with your account and enter it .... or have it stored in the /.gnupg folder in c/users/<windowsusername>
+
+
+computerX /c/cap/overlake-uas4stem/journals (snow-changes)
+$ git push origin head
+warning: the `credential.authority` and `GCM_AUTHORITY` settings are deprecated.
+warning: see https://aka.ms/gcm/authority for more information.
+warning: the `credential.authority` and `GCM_AUTHORITY` settings are deprecated.
+warning: see https://aka.ms/gcm/authority for more information.
+warning: the `credential.authority` and `GCM_AUTHORITY` settings are deprecated.
+warning: see https://aka.ms/gcm/authority for more information.
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 419 bytes | 419.00 KiB/s, done.
+Total 4 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/steve-snow/overlake-uas4stem
+   0dc473d..f3a355a  head -> snow-changes
+
+computerX /c/cap/overlake-uas4stem/journals (snow-changes)
+$ git config --global credential.github.com.authority
+
+computerX /c/cap/overlake-uas4stem/journals (snow-changes)
+$ git config credential.github.com.authority
+
+computerX /c/cap/overlake-uas4stem/journals (snow-changes)
+$ git config --global --unset credential.github.com.authority
+
+computerX /c/cap/overlake-uas4stem/journals (snow-changes)
+$ git config --global credential.github.com.provider
+
+computerX /c/cap/overlake-uas4stem/journals (snow-changes)
+$ git config --global credential.github.com.provider github
+
+computerX /c/cap/overlake-uas4stem/journals (snow-changes)
+$ git config --global credential.github.com.provider
+github
+
+computerX /c/cap/overlake-uas4stem/journals (snow-changes)
+$ git config --global credential.github.com.allowWindowsAuth false
+
+computerX /c/cap/overlake-uas4stem/journals (snow-changes)
+$ git push origin head
+Everything up-to-date
+
+computerX /c/cap/overlake-uas4stem/journals (snow-changes)
+$ git add -A
+
+computerX /c/cap/overlake-uas4stem/journals (snow-changes)
+$ git commit -m 'another entry'
+[snow-changes 0709018] another entry
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+computerX /c/cap/overlake-uas4stem/journals (snow-changes)
+$ git status
+On branch snow-changes
+nothing to commit, working tree clean
+
+computerX /c/cap/overlake-uas4stem/journals (snow-changes)
+$ git push origin head
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 478 bytes | 478.00 KiB/s, done.
+Total 4 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/steve-snow/overlake-uas4stem
+   f3a355a..0709018  head -> snow-changes
+
+computerX /c/cap/overlake-uas4stem/journals (snow-changes)
+$ git config commit.gpsign
+
+computerX /c/cap/overlake-uas4stem/journals (snow-changes)
+$ git config commit.gpsign true
+
+computerX /c/cap/overlake-uas4stem/journals (snow-changes)
+$ git add -A
+
+computerX /c/cap/overlake-uas4stem/journals (snow-changes)
+$ git status
+On branch snow-changes
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   snow-journal.txt
+
+
+computerX /c/cap/overlake-uas4stem/journals (snow-changes)
+$ git commit -S -m 'test signing'
+gpg: directory '/c/Users/spsno/.gnupg' created
+gpg: skipped "050snow <stephen.snow@wawg.cap.gov>": No secret key
+gpg: signing failed: No secret key
+error: gpg failed to sign the data
+fatal: failed to write commit object
+
+computerX /c/cap/overlake-uas4stem/journals (snow-changes)
+$ git commit -m 'test signing'
+[snow-changes cfcc423] test signing
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+computerX /c/cap/overlake-uas4stem/journals (snow-changes)
+$ git add -A
+
+computerX /c/cap/overlake-uas4stem/journals (snow-changes)
+$ git commit -m 'could not sign'
+[snow-changes b0700f3] could not sign
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+computerX /c/cap/overlake-uas4stem/journals (snow-changes)
+$ git push origin head
+Enumerating objects: 11, done.
+Counting objects: 100% (11/11), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (8/8), 964 bytes | 964.00 KiB/s, done.
+Total 8 (delta 3), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (3/3), completed with 1 local object.
+To https://github.com/steve-snow/overlake-uas4stem
+   0709018..b0700f3  head -> snow-changes
+
+computerX /c/cap/overlake-uas4stem/journals (snow-changes)
+$
